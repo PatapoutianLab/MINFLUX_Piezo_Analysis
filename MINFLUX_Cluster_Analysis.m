@@ -199,7 +199,7 @@ title ('raw DBSCAN results')
 % Unique elements and locations in third column
 [uv, ~, id] = unique(clust_XYZ_DBSCAN(:,8));
 % How many of each?
-n = histcounts(id,'BinWidth',1);
+n = accumarray(id, 1);
 % Keep traces where cluster number = 3
 clust_XYZ_DBSCAN_3 = clust_XYZ_DBSCAN(ismember(clust_XYZ_DBSCAN(:,8), uv(n==3)),:);
 
